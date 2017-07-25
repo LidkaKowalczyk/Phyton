@@ -335,4 +335,237 @@ b = 19
 print("a jest większe od b o: "+str(a-b)) if (a >= b) else print("a jest mniejsze od b o: "+str(b-a))
 '''
 
+#PĘTLA FOR A IN
+'''
+lista = [1,2,3,4,5,6,7,8,9]
+for var in lista:
+    print("Wartości: "+ str(var))
+ '''
 
+'''
+lista = [1,2,3,4,5,6,7,8,9]
+for var in lista:
+   print("Wartości: "+ str(var))
+lista.append(15)
+for index, var in enumerate(lista):
+   print("Index: "+str(index)+"\tWartości: "+ str(var))
+'''
+
+'''
+SL = {'a':1, 'b':2, 'c':3}
+for k in SL:
+    print(k, SL[k])
+'''
+
+#zagnierzdzenie for in
+
+'''
+SL = {'a':1, 'b':2, 'c':3}
+for k in SL:
+    if (SL[k] >= 2):
+        print(k, SL[k])
+        '''
+
+# range 1-100
+
+'''
+s1 = range(100)
+print(s1)
+for i in s1:
+    print(i)
+'''
+
+
+'''
+s1 = range(100)
+print(s1)
+for i in s1:
+    print(i)
+   #wypisuje od 15 do 24 
+for j in range(15,25):
+    print(j)
+ # wypisuje co 3 elemen)   
+for k in range(0,50,3):
+    print(k)
+'''
+
+'''
+#kwadraty wszystkich liczb parzystych
+s1 = range(100)
+print(s1)
+for i in s1:
+    print(i)
+   #wypisuje od 15 do 24 
+for j in range(15,25):
+    print(j)
+ # wypisuje co 3 elemen)   
+for k in range(0,20,2):
+    print(k, k**2)
+'''
+
+#kwadraty wszystkich liczb parzystych
+'''
+s1 = range(100)
+print(s1)
+  
+for k in range(0,100):
+    print(k, k**2, k**3)
+'''
+
+#określanie / formatowanie długości (można osadzic, i - intidżery, flouty, s, c,...) 
+
+'''
+s1 = range(100)
+print(s1)
+
+for k in range(0,100):
+    print("Wynik: %4i%6i%8i" % (k, k**2, k**3))
+    '''
+
+#osoadznie ułamków dziesiętnych
+'''
+s1 = range(100)
+print(s1)
+
+for k in range(0,100):
+    print("Pierwiastek sześcienny z %4i to: %6.5f" % (k, k**0.3))
+    '''
+
+#P57  BREAK
+'''
+zamowienie = input("Wybierz towar: ")
+sklep_produkty = {'chleb':'a','masło':'b','mleko':'c'}
+
+for k in sklep_produkty:
+    if(zamowienie == k):
+        print("Produkt dostępny: " + k)
+        break
+ '''   
+#P58
+
+'''
+zamowienie = input("Wybierz towar: ")
+zamowienie_ilosc = int(input("Podaj ilość zamawianego produktu: "))
+sklep_produkty = {'chleb':'a','masło':'b','mleko':'c'}
+produkty_cena = {'a':1.5,'b':4.6,'c':7}
+produkty_dostepnosc = {'a':10,'b':80,'c':7}
+suma = 0
+i = "t"
+while(i == "t"):
+    zamowienie = input("Wybierz towar: ")
+    zamowienie_ilosc = int(input("Podaj ilość zamawianego produktu: "))
+    for k in sklep_produkty:
+        if(zamowienie == k and produkty_dostepnosc[sklep_produkty[k]] >= zamowienie_ilosc):
+            print("Produkt dostępny: " + k)
+            print("Zamawiasz: " + str(zamowienie_ilosc) + 'szt')
+            suma += zamowienie_ilosc*produkty_cena[sklep_produkty[k]]
+            
+        elif(zamowienie == k and produkty_dostepnosc[sklep_produkty[k]] < zamowienie_ilosc):
+            print("Produkt dostępny: " + k)
+            print("Jest dostępne tylko: " + str(produkty_dostepnosc[sklep_produkty[k]] + 'szt'))
+    i = input("czy chcesz zamawiac dalej? (t/n)")
+print("Do zapłaty: " + str(suma))
+
+'''
+
+# niezrobione
+'''
+sklep_produkty = {'chleb':'a','masło':'b','mleko':'c'}
+produkty_cena = {'a':1.5,'b':4.6,'c':7}
+produkty_dostepnosc = {'a':10,'b':80,'c':7}
+suma = 0
+i = "t"
+while(i == "t"):
+    zamowienie = input("Wybierz towar: ")
+    zamowienie_ilosc = int(input("Podaj ilość zamawianego produktu: "))
+    if (zamowienie in sklep_produkty.keys()):
+        if(produkty_dostepnosc[sklep_produkty[k]] >= zamowienie_ilosc):
+                print("Produkt dostępny: " + k)
+                print("Zamawiasz: " + str(zamowienie_ilosc) + 'szt')
+                suma += zamowienie_ilosc*produkty_cena[sklep_produkty[zamowienie]]
+        elif(produkty_dostepnosc[sklep_produkty[k]] < zamowienie_ilosc):
+                print("Produkt dostępny: " + k)
+                print("Jest dostępne tylko: " + str(produkty_dostepnosc[sklep_produkty[k]] + 'szt'))
+    else:
+        print("Brak produktu który chcesz zamówić")  
+    i = input("czy chcesz zamawiac dalej? (t/n)")
+print("Do zapłaty: " + str(suma))
+'''
+
+
+
+'''    
+    
+        break   
+'''
+
+#P60
+'''
+i = "t"
+res = []
+to_dec = {0:'zero',1:'jeden',2:'dwa',3:'trzy',4:'cztery',5:'pięć',6:'sześć',7:'siedem',8:'osiem',9:'dziewięć'}
+while(i == "t"):
+    dig = input("Wprowadź cyfrę: ")
+    if(dig.isdigit()):
+        dig = int(dig)
+        res.append(to_dec[dig])
+    else:
+        print("podana wartość nie jest cyfrą")
+    i = input("czy chcesz wprowadzac dalej? (t/n)")
+for i in res:
+    print(i,end="")
+
+'''
+#ignorujemy znaki
+#konwertujemy cyfry
+
+#P61
+
+#s1 = range(0,11)
+#print(s1)
+'''
+for k in range(1,11):
+    print("====================")
+    print("Wynik: %4i%4i%4i%4i%4i%4i%4i%4i%4i%4i" % (k,k*2,k*3,k*4,k*5,k*6,k*7,k*8,k*9,k*10))
+'''
+'''
+line = range(1,6)
+n = 1
+print("%3i%3i%3i%3i%3i" % (1,2,3,4,5))
+print("====================")
+while(n<=5):
+    print(str(n)+" |",end="")
+    print("%3i%3i%3i%3i%3i" % (n*line[0], n*line[1],n*line[2],n*line[3],n*line[4])) 
+    n +=1
+  '''  
+#P63
+'''
+print("Kawadraty liczb nieparzystych!")
+np = range(1,10,2)
+i = len(np) - 1
+while(i>=0):
+    print(np[i])
+    i -= 1
+'''
+#po przecinku
+'''
+print("Kawadraty liczb nieparzystych!")
+np = range(1,10,2)
+i = len(np) - 1
+while(i>=0):
+    print(np[i]**2, end=", ")
+    i -= 1
+   ''' 
+
+   # bez przecinka na końcu
+   '''
+print("Kawadraty liczb nieparzystych!")
+np = range(1,10,2)
+i = len(np) - 1
+while(i>=0):
+   if(i==0):
+      print(np[i]**2)
+   else:
+      print(np[i]**2, end=", ")
+   i -= 1 
+   '''
