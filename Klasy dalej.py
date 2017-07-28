@@ -203,6 +203,7 @@ s1 = Szkolenie("Witaj Python", 1000, "Python2", "MacOS", "2012-02-20")
 print(s1)
 '''
 # drugi obiekt
+'''
 class Produkt:
     def __init__(self, nazwa, cena):
         self.nazwa = nazwa
@@ -225,10 +226,62 @@ class Szkolenie(Oprogramowanie):
     
 s1 = Szkolenie("Witaj Python", 1000, "Python2", "MacOS", "2012-02-20")
 print(s1)
+'''
 
+#P80 - (470)
+'''
+class PolaKolorow:
+    def __init__(self, R, G, B):
+        self.R = R
+        self.G = G
+        self.B = B
+        
+    def __str__(self):
+        return "Twój kolor:  ["+ str(self.R) + "," + str(self.G)+"," +str(self.B)+ "]"
+    def __add__(self, other):
+        return (self.R + other.R)/2, (self.G + other.G)/2, (self.B + other.B)/2
     
 
+    
+kolor1 = PolaKolorow(100,100,100)
+print(kolor1)
+kolor2 = PolaKolorow(100, 150, 50)
+print(kolor2)
+kolor3 = kolor1 + kolor2
+print(kolor3)
 
+'''
 
+#P80 (dodatkowe cd.)
+
+class Pracownik:
+    def __init__ (self, imie, nazwisko, etat="Staz", pensja=500):
+        self.imie = imie
+        self.nazwisko = nazwisko
+        self.etat = etat
+        self.pensja = pensja
+    def przelicz(self):
+        self.pensja_b = self.pensja *1.23
+        return self.pensja_b, self.pensja
+        
+class Kontrakt(Pracownik):
+    def __init__ (self, imie, nazwisko, etat="Staz", pensja=500):
+        super().__init__(imie, nazwisko, etat, pensja)
+    def zmienKontrakt(self, etat, pensja):
+        self.etat = etat
+        self.pensja = pensja
+    def dodajNadgodziny(self, liczba):
+        self.liczba = liczba
+        self.pensja = self.pensja + ((self.pensja/(20*8)) * self.liczba)
+    def __str__(self):
+        return "Pensja brutto pracownika z nadgodzinami: "+ self.imie+ " "+ self.nazwisko +" " +str(self.pensja)
+    
+p1 = Kontrakt("Adam", "Kowalski")
+print(p1.przelicz())
+p1.zmienKontrakt("Developer", 5000)
+print(p1.przelicz())
+p1.dodajNadgodziny(50)
+print(p1.przelicz())
+print(p1)
 
 
